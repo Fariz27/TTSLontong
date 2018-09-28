@@ -45,7 +45,7 @@ public class FXMLDocumentController implements Initializable {
             // Load the new fxml
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("FXMLutama.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 494, 545);
+            Scene scene = new Scene(fxmlLoader.load());
 
             // Create new stage (window), then set the new Scene
             Stage stage = new Stage();
