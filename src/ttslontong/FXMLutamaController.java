@@ -5,6 +5,8 @@
  */
 package ttslontong;
 
+import java.io.*;
+import sun.audio.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -21,7 +23,7 @@ import javax.swing.JOptionPane;
  * @author Fariz
  */
 public class FXMLutamaController implements Initializable {
-    private String soal1="",soal2="",soal3="",soal4="";
+    private String soal1="",soal2="",soal3="",soal4="",skorrmin;
     private int skorr;
     private boolean s1benar=false,s2benar=false,s3benar=false,s4benar=false;
 
@@ -88,7 +90,9 @@ public class FXMLutamaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        JOptionPane.showMessageDialog(null,"Untuk melihat soal klick tampilkan soal");
+        String namapeng =JOptionPane.showInputDialog("Masukan nama");
+        skor2.setText(namapeng);
     }    
 
     @FXML
@@ -98,6 +102,7 @@ public class FXMLutamaController implements Initializable {
 
     @FXML
     private void inJawab(ActionEvent event) {
+        InputStream in;
         
         soal1=a1.getText()+a2.getText()+a3.getText();
         
@@ -108,27 +113,50 @@ public class FXMLutamaController implements Initializable {
             cek1.setText("V");
             skorr+=100;
             skor.setText(Integer.toString(skorr));
+            try{
+            in =new FileInputStream(new File("benar.wav"));
+        AudioStream audios=new AudioStream(in);
+        AudioPlayer.player.start(audios);
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);    
+                }
             JOptionPane.showMessageDialog(null,"Motor jelas punya roda. kalau ga punya ga bisa jalan dong.");
             s1benar=true;
             a1.setEditable(false);
             a2.setEditable(false);
             a3.setEditable(false);
             
-        }else{
+        }else{  
+            try{
+            in =new FileInputStream(new File("salah.wav"));
+        AudioStream audios=new AudioStream(in);
+        AudioPlayer.player.start(audios);
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);    
+                }
             JOptionPane.showMessageDialog(null,"Jawaban salah skor -50");
             skorr-=50;
-            skor.setText(skor.toString());
+            skorrmin=Integer.toString(skorr);
+            skor.setText(skorrmin);
+            
         }
         }
         }
         soal2=b1.getText()+a3.getText()+b3.getText()+b4.getText()+b5.getText()+b6.getText();
         if(soal2.length()==6){
-            if(s4benar!=true){
+            if(s2benar!=true){
         if(soal2.equalsIgnoreCase("bannya")){
             skor.setText("");
             cek2.setText("V");
             skorr+=100;
             skor.setText(Integer.toString(skorr));
+            try{
+            in =new FileInputStream(new File("benar.wav"));
+        AudioStream audios=new AudioStream(in);
+        AudioPlayer.player.start(audios);
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);    
+                }
             JOptionPane.showMessageDialog(null,"Jadi maunya dimana? di stang??");
             s2benar=true;
             b1.setEditable(false);
@@ -139,9 +167,17 @@ public class FXMLutamaController implements Initializable {
             b6.setEditable(false);
 
         }else{
+            try{
+            in =new FileInputStream(new File("salah.wav"));
+        AudioStream audios=new AudioStream(in);
+        AudioPlayer.player.start(audios);
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);    
+                }
             JOptionPane.showMessageDialog(null,"Jawaban salah skor -50");
             skorr-=50;
-            skor.setText(skor.toString());
+            skorrmin=Integer.toString(skorr);
+            skor.setText(skorrmin);
         }
         }
         }
@@ -153,6 +189,13 @@ public class FXMLutamaController implements Initializable {
             cek3.setText("V");
             skorr+=100;
             skor.setText(Integer.toString(skorr));
+            try{
+            in =new FileInputStream(new File("benar.wav"));
+        AudioStream audios=new AudioStream(in);
+        AudioPlayer.player.start(audios);
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);    
+                }
         JOptionPane.showMessageDialog(null,"Alasannya Cari Sendiri");
         s3benar=true;
         c1.setEditable(false);
@@ -161,9 +204,17 @@ public class FXMLutamaController implements Initializable {
         c4.setEditable(false);
         c5.setEditable(false);
         }else{
+            try{
+            in =new FileInputStream(new File("salah.wav"));
+        AudioStream audios=new AudioStream(in);
+        AudioPlayer.player.start(audios);
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);    
+                }
             JOptionPane.showMessageDialog(null,"Jawaban salah skor -50");
             skorr-=50;
-            skor.setText(skor.toString());
+            skorrmin=Integer.toString(skorr);
+            skor.setText(skorrmin);
         }
         }
         }
@@ -173,9 +224,16 @@ public class FXMLutamaController implements Initializable {
             if(s4benar==false){
         if(soal4.equalsIgnoreCase("kerjaan")){
             skor.setText("");
-            cek1.setText("V");
+            cek4.setText("V");
             skorr+=100;
             skor.setText(Integer.toString(skorr));
+            try{
+            in =new FileInputStream(new File("benar.wav"));
+        AudioStream audios=new AudioStream(in);
+        AudioPlayer.player.start(audios);
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);    
+                }
             JOptionPane.showMessageDialog(null,"Lilin sudah nyala kenapa dimatiin");
             s4benar=true;
             d1.setEditable(false);
@@ -187,12 +245,21 @@ public class FXMLutamaController implements Initializable {
             d7.setEditable(false);
             
         }else{
+            try{
+            in =new FileInputStream(new File("salah.wav"));
+        AudioStream audios=new AudioStream(in);
+        AudioPlayer.player.start(audios);
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);    
+                }
             JOptionPane.showMessageDialog(null,"Jawaban salah skor -50");
             skorr-=50;
-            skor.setText(skor.toString());
+            skorrmin=Integer.toString(skorr);
+            skor.setText(skorrmin);
         }
         }
         }
+        
     }
 
     @FXML

@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="ttslontong.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttslontong.FXMLDocumentController">
     <children>
       <ImageView fitHeight="340.0" fitWidth="419.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@1491636977_TTS-Lontong.jpg" />
          </image>
       </ImageView>
-        <Label fx:id="label" layoutX="26.0" layoutY="14.0" minHeight="16" minWidth="69" prefHeight="46.0" prefWidth="188.0" />
-        <Button fx:id="buttonMasuk" layoutX="32.0" layoutY="181.0" onAction="#bmasuk" prefHeight="35.0" prefWidth="176.0" style="-fx-background-color: linear-gradient(green,#00b512,green); -fx-border-color: blue; -fx-border-width: 3;" text="Masuk Pak Eko?" textFill="WHITE">
+        <Label fx:id="label" layoutY="207.0" minHeight="16" minWidth="69" prefHeight="24.0" prefWidth="196.0" text="Created by: Fariz Akbar A. R." textFill="WHITE" />
+        <Button fx:id="buttonMasuk" layoutX="32.0" layoutY="169.0" onAction="#bmasuk" prefHeight="35.0" prefWidth="176.0" style="-fx-background-color: linear-gradient(green,#00b512,green); -fx-border-color: blue; -fx-border-width: 3;" text="Masuk Pak Eko?" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="15.0" />
          </font></Button>
